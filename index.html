@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="he">
+    <meta charset="utf-8" />
+
+<html>
+    <head>
+        <style>
+            .center {
+            margin: auto;
+            width: 60%;
+            border: 3px ;
+            padding: 10px;
+            }
+        </style>
+        <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
+        <script src="https://unpkg.com/video.js/dist/video.js"></script>
+        <script src="https://unpkg.com/videojs-flash/dist/videojs-flash.js"></script>
+        <!--script src="https://unpkg.com/videojs-contrib-hls/dist/videojs-contrib-hls.js"></script-->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+        
+        <p id="p1"></p>
+
+        <div class="center" >
+            <video id=example-video width=770 height=425 class="video-js vjs-default-skin" controls>
+                <source
+                src="http://51.15.94.201:8080/hls/0533189028.m3u8"
+                type="application/x-mpegURL">
+            </video>
+        </div>
+
+        
+            
+        <script>
+            var player = videojs('example-video');
+            player.play();
+            
+           $(function() {
+              var url = "http://51.15.94.201:8080/hls/0533189028.m3u8";
+              $.ajax(url,
+              {
+                 statusCode: {
+                 404: function() {
+                    // ריענון הדף                    
+                    /*var SeTime=3000;//שניה אחת=1000(3 שניות 3000)
+                    function ReloadPage(){
+                    window.location.reolad();
+                    }
+                    function StartReolad(){
+                    setTimeout("ReloadPage()",SeTime);
+                    SeTime=11000;
+                    }*/
+                    document.getElementById("p1").innerHTML = "אין שידור כעת";
+                 },
+                 200: function(){
+                    document.getElementById("p1").innerHTML = "השידור פועל כעת";
+                 }
+              }
+           });   
+        });
+        </script>
+    </body>
+</html>
