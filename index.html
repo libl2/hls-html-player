@@ -13,12 +13,13 @@
             }
             p{
                 text-align: center;
-                font-size:22px
+                font-size:28px
             }
             body {
             background-image:url('https://lh3.googleusercontent.com/-MaULGZNYoKE/XMtayAfHIRI/AAAAAAAAFSs/xz5GVp90uigx1HJjcTcQfGX0vUCHdflkwCLIBGAYYCw/w960-h960-n-o-k-v1/');
-            background-repeat:no-repeat;
-            background-attachment:scroll;
+            background-repeat:repeat-x;
+            background-attachment: local, scroll;
+            background-position: center;
             }
         </style>
 
@@ -51,23 +52,25 @@
               var url = "http://51.15.94.201:8080/hls/0533189028.m3u8";
               $.ajax(url,
               {
-                 statusCode: {
-                 404: function() {
-                    // ריענון הדף                    
-                    /*var SeTime=3000;//שניה אחת=1000(3 שניות 3000)
-                    function ReloadPage(){
-                    window.location.reolad();
+                 statusCode:{
+                    404:function(){
+                        // ריענון הדף
+                                        
+                        /*var SeTime=3000;//שניה אחת=1000(3 שניות 3000)
+                            function ReloadPage(){
+                                window.location.reolad();
+                            }
+
+                            function StartReolad(){
+                                setTimeout("ReloadPage()",SeTime);
+                            SeTime=11000;
+                            }*/
+                        document.getElementById("p1").innerHTML = "אין שידור כעת";
+                    },
+                    200:function(){
+                        document.getElementById("p1").innerHTML = "השידור פועל כעת";
                     }
-                    function StartReolad(){
-                    setTimeout("ReloadPage()",SeTime);
-                    SeTime=11000;
-                    }*/
-                    document.getElementById("p1").innerHTML = "אין שידור כעת";
-                 },
-                 200: function(){
-                    document.getElementById("p1").innerHTML = "השידור פועל כעת";
-                 }
-              }
+                }
            });   
         });
         </script>
