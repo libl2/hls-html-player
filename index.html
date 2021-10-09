@@ -54,19 +54,10 @@
               {
                  statusCode:{
                     404:function(){
-                        // ריענון הדף
-                                        
-                        setTimeout(function(){location.reload()},5000);
-                        /*var SeTime=3000;//שניה אחת=1000(3 שניות 3000)
-                            function ReloadPage(){
-                                window.location.reolad();
-                            }
-
-                            function StartReolad(){
-                                setTimeout("ReloadPage()",SeTime);
-                            SeTime=11000;
-                            }*/
+                        
+                        // ריענון הדף                
                         document.getElementById("p1").innerHTML = "אין שידור כעת";
+                        setTimeout(function(){location.reload()},5000);
                     },
                     200:function(){
                         document.getElementById("p1").innerHTML = "השידור פועל כעת";
