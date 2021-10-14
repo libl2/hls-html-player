@@ -28,20 +28,7 @@
         <script src="https://unpkg.com/videojs-flash/dist/videojs-flash.js"></script>
         <!--script src="https://unpkg.com/videojs-contrib-hls/dist/videojs-contrib-hls.js"></script-->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-        <link rel="icon" type="image/x-icon" href="https://irp.cdn-website.com/94b8c15d/site_favicon_16_1626344194823.ico"/>
-        <title>שידור חי</title>
-
-        <script type="text/javascript">
-            var password = "please";
-            var x = prompt("Enter in the password "," ");
-            if (x.toLowerCase() == password) {
-             alert("Come right in \n \n You've entered in the right password");
-             //window.location = "good.htm";
-            }
-            else {
-             window.location = "bad.htm";
-            }
-        </script>
+        
 
     </head>
 
@@ -52,7 +39,7 @@
         <div class="center" >
             <video id=example-video width=760 height=425 class="video-js vjs-default-skin" controls>
                 <source
-                src="http://51.15.94.201:8080/hls/0533189028.m3u8"
+                src="url"
                 type="application/x-mpegURL">
             </video>
         </div>
@@ -64,7 +51,7 @@
             player.play();
             
            $(function() {
-              var url = "http://51.15.94.201:8080/hls/0533189028.m3u8";
+              var url = "url";
               $.ajax(url,
               {
                  statusCode:{
